@@ -25,6 +25,7 @@ namespace ConsoleApp1 {
             return result;
         }
 
+        // TODO: припилить арифметическое сжатие + переписать на байты
         public List<int> Encode() {
             List<int> result = new();
             List<int> indexOfFindedSymbols = GetUniqueSymbolsIndex();
@@ -35,6 +36,7 @@ namespace ConsoleApp1 {
             int i = 0;
             while(i < _sourceString.Length) {
                 endIndexOfSeries = SkipRepeatedSymbols(i, indexOfFindedSymbols);
+
                 if(endIndexOfSeries == _sourceString.Length) {
                     result.Add(0);
                     return result;
@@ -83,7 +85,6 @@ namespace ConsoleApp1 {
             while (index < _sourceString.Length - 1 && _sourceString[index + 1] == _sourceString[index]) {
                 FindedSymbols.Add(index);
                 index++;
-
             }
 
             return index + 1;
