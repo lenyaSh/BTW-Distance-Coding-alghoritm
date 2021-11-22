@@ -1,0 +1,28 @@
+﻿string inputString//кодируемая строка
+Dictionary<char, int>//Соответстиве буквы и первого появления в исходной строке
+result int[];
+List<int> finded;
+getFirstJoin()//Создает словарь, и добавляет в найденные символы
+//Результат: C _ L E  W  I  S  N  U  A  H  D  O  T  F
+             0 2 8 10 14 15 16 17 19 23 25 30 40 43 46
+
+i =0;
+Пока i<inputString.Length
+{
+	endSeries = skipSeries(i);
+	nextJoin = от endSeries до конца строки найти i; 
+	if(nextJoin == -1)
+		result.Add(0);
+	else
+	{
+		result.Add(nextJoin-endSeries - найденные символы + 1)
+		finded.Add(nextJoin)
+	}
+	i = endSeries;
+	
+}
+skipSeries(int i)
+{
+	while inputString[i+1] == inputStr ing[i] i++;
+	return i+1;
+}

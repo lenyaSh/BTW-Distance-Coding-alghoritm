@@ -1,71 +1,104 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ConsoleApp1 {
     class DC {
         private string _sourceString;
-        private string _alphabet;
 
         public DC(string sourceString) {
             _sourceString = sourceString;
         }
 
-        private string GetAlhabetFromText() {
-            string result = "";
-            foreach(char elem in _sourceString) {
-                if(!result.Contains(elem)) {
-                    result += elem;
+        private List<int> GetUniqueSymbolsIndex() {
+            string temp = "";
+            List<int> result = new();
+
+            for (int i = 0; i < _sourceString.Length; i++) {
+                if (!temp.Contains(_sourceString[i])) {
+                    temp += _sourceString[i];
+                    result.Add(i);
+
                 }
             }
 
-            return string.Concat(result.OrderBy(char.ToLower));
+            return result;
         }
 
         public List<int> Encode() {
-            _alphabet = GetAlhabetFromText();
-            string temp = _alphabet + _sourceString;
             List<int> result = new();
-            List<int> indexOfFindedSymbols = new() { 4, 3, 2, 1, 0};
+            List<int> indexOfFindedSymbols = GetUniqueSymbolsIndex();
 
-            int indexOfSearchSymbol;
-            int countWithoutFindedSymbols = 0;
-            int indexSearcedSymbolOnSubsrting = 0;
-
-            for(int i = 0; i < temp.Length - 1; i++) {
-                indexSearcedSymbolOnSubsrting = temp[(i + 1)..].IndexOf(temp[i]);
-
-                if(indexSearcedSymbolOnSubsrting != -1) {
-                    indexOfSearchSymbol = indexSearcedSymbolOnSubsrting + i + 1;
-                    countWithoutFindedSymbols = GetCountWithoutFindedSymbols(i, indexOfSearchSymbol, indexOfFindedSymbols);
+            int endIndexOfSeries = 0;
+            int indexOfNewJoin = 0;
+            int countFindedSymbolsBetweenEndAndStartIndex;
+            int i = 0;
+            while(i < _sourceString.Length) {
+                endIndexOfSeries = SkipRepeatedSymbols(i, indexOfFindedSymbols);
+                if(endIndexOfSeries == _sourceString.Length) {
+                    result.Add(0);
+                    return result;
                 }
                 else {
-                    countWithoutFindedSymbols = GetCountWithoutFindedSymbols(i, temp.Length, indexOfFindedSymbols, true);
+                    indexOfNewJoin = _sourceString[endIndexOfSeries..].IndexOf(_sourceString[endIndexOfSeries - 1]);
+
+                    if (indexOfNewJoin == -1) {
+
+                        if (indexOfFindedSymbols.Count == _sourceString.Length)
+                            break;
+
+                        result.Add(0);
+
+                        if (!indexOfFindedSymbols.Contains(i)) {
+                            indexOfFindedSymbols.Add(i);
+                        }
+                    }
+                    else {
+                        indexOfNewJoin += endIndexOfSeries;
+                        countFindedSymbolsBetweenEndAndStartIndex = GetCountWithoutFindedSymbols(endIndexOfSeries, indexOfNewJoin, indexOfFindedSymbols);
+                        result.Add(indexOfNewJoin - endIndexOfSeries + 1 - countFindedSymbolsBetweenEndAndStartIndex);
+
+                        if (!indexOfFindedSymbols.Contains(indexOfNewJoin))
+                            indexOfFindedSymbols.Add(indexOfNewJoin);
+                    }
                 }
 
-                if (countWithoutFindedSymbols != -1)
-                    result.Add(countWithoutFindedSymbols);
+                i = endIndexOfSeries;
             }
+
             return result;
         }
-       
-        private int GetCountWithoutFindedSymbols(int startIndex, int endIndex, List<int> findedIndex, bool isEndOfText = false) {
+
+        private bool CheckOfAllFindedSymbols(List<int> FindedSymbols, int index) {
+            FindedSymbols.Sort();
+            for(int i = index; i < FindedSymbols.Count; i++) {
+                if (FindedSymbols[i] - FindedSymbols[i - 1] > 1)
+                    return false;
+            }
+            return true;
+        }
+
+        private int SkipRepeatedSymbols(int index, List<int> FindedSymbols) {
+
+            while (index < _sourceString.Length - 1 && _sourceString[index + 1] == _sourceString[index]) {
+                FindedSymbols.Add(index);
+                index++;
+
+            }
+
+            return index + 1;
+        }
+
+        private int GetCountWithoutFindedSymbols(int startIndex, int endIndex, List<int> findedIndex) {
             int counter = 0;
 
-            for(int i = startIndex + 1; i < endIndex; i++) {
+            for (int i = startIndex; i < endIndex; i++) {
                 if (findedIndex.Contains(i)) {
                     counter++;
                 }
             }
-            if (!isEndOfText)
-                findedIndex.Add(endIndex);
-            else
-                findedIndex.Add(startIndex);
-
-            if (counter == 0) {
-                return -1;
-            }
-
-            return endIndex - startIndex - counter - 1;
+            
+            return counter == 0 ? 0 : counter;
         }
     }
 }
