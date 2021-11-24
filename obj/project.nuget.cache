@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "kmqsFwEZh5iZ6+xdBJEl5Hn2SfPBiloEFWZmt6Pq/keuLuMCVYubZCGwBKcQXCK6vBzrS0vj4OcnevMSbj4mQw==",
+  "dgSpecHash": "Ic5n+Siypepcy2byNLb/r7RLP3ZATlSp9fMsJcSCv/G+DchUCCqeCy3lvvhTcbDd/o1YK+CYMg0rl0pdhjjS6w==",
   "success": true,
   "projectFilePath": "C:\\Users\\shiri\\OneDrive\\Desktop\\учеба\\ТеорИнф\\BWT + Distance coding\\ConsoleApp1.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\shiri\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\shiri\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\shiri\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\shiri\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
+  ],
   "logs": []
 }
