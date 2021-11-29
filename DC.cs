@@ -10,6 +10,10 @@ namespace ConsoleApp1 {
             _sourceSequence = sourceSequence;
         }
 
+        /// <summary>
+        /// Поиск индексов первого вхождения каждого из символов алфавита
+        /// </summary>
+        /// <returns>Словарь символ - индекс, показывающий какой символ находится на конкретном индексе</returns>
         private Dictionary<byte, int> GetUniqueSymbolsIndex() {
             List<byte> temp = new();
             Dictionary<byte, int> result = new();
@@ -24,6 +28,10 @@ namespace ConsoleApp1 {
             return result;
         }
 
+        /// <summary>
+        /// Метод сжатия по алгоритму кодирования расстояний
+        /// </summary>
+        /// <returns>Список расстояний + индексы первых вхождений каждого нового символа</returns>
         public (List<int>, Dictionary<byte, int>) Encode() {
             List<int> result = new();
             Dictionary<byte, int> IndexOfSymbols = GetUniqueSymbolsIndex();
@@ -35,26 +43,31 @@ namespace ConsoleApp1 {
             int i = 0;
             while(i < _sourceSequence.Length) {
                 endIndexOfSeries = SkipRepeatedSymbols(i, indexOfFindedSymbols);
-
+                
+                //пропустили серию и проверяем, не достигли ли конца строки
                 if(endIndexOfSeries == _sourceSequence.Length) {
                     result.Add(0);
                     return (result, IndexOfSymbols);
                 }
                 else {
+                    //находим индекс искомого символа
                     indexOfNewJoin = Array.IndexOf(_sourceSequence[endIndexOfSeries..], _sourceSequence[endIndexOfSeries - 1]);
 
+                    //такого символа до конца строки нет
                     if (indexOfNewJoin == -1) {
-
+                        //если нашли все символы
                         if (indexOfFindedSymbols.Count == _sourceSequence.Length)
                             break;
 
                         result.Add(0);
 
+                        //добавляем индекс текущего символа к уже найденным
                         if (!indexOfFindedSymbols.Contains(i)) {
                             indexOfFindedSymbols.Add(i);
                         }
                     }
                     else {
+                        //считаем расстояние от символа до символа
                         indexOfNewJoin += endIndexOfSeries;
                         countFindedSymbolsBetweenEndAndStartIndex = GetCountWithoutFindedSymbols(endIndexOfSeries, indexOfNewJoin, indexOfFindedSymbols);
                         result.Add(indexOfNewJoin - endIndexOfSeries + 1 - countFindedSymbolsBetweenEndAndStartIndex);
@@ -70,6 +83,12 @@ namespace ConsoleApp1 {
             return (result, IndexOfSymbols);
         }
 
+        /// <summary>
+        /// Метод пропуска серии символов
+        /// </summary>
+        /// <param name="index">Индекс текущего символа</param>
+        /// <param name="FindedSymbols">Список уже известных индексов</param>
+        /// <returns>Индекс первого отличающегося символа</returns>
         private int SkipRepeatedSymbols(int index, List<int> FindedSymbols) {
 
             while (index < _sourceSequence.Length - 1 && _sourceSequence[index + 1] == _sourceSequence[index]) {
@@ -80,6 +99,13 @@ namespace ConsoleApp1 {
             return index + 1;
         }
 
+        /// <summary>
+        /// Подсчет расстояния без учета уже известных символов
+        /// </summary>
+        /// <param name="startIndex">Индекс, откуда начинали поиск</param>
+        /// <param name="endIndex">Индекс, где поиск закончился</param>
+        /// <param name="findedIndex">Индексы уже найденных символов</param>
+        /// <returns>Расстояние</returns>
         private static int GetCountWithoutFindedSymbols(int startIndex, int endIndex, List<int> findedIndex) {
             int counter = 0;
 
@@ -92,13 +118,20 @@ namespace ConsoleApp1 {
             return counter == 0 ? 0 : counter;
         }
 
-
+        /// <summary>
+        /// Метод раскодирования сжатого файла
+        /// </summary>
+        /// <param name="distance">Список расстояний</param>
+        /// <param name="indexOfSymbols">Список уже найденных первых вхождений каждого символа</param>
+        /// <param name="fileSize">Размер файла</param>
+        /// <returns>Последовательность исходных байт</returns>
         public byte[] Decode(List<int> distance, Dictionary<byte, int> indexOfSymbols, int fileSize) {
             int[] result = new int[fileSize];
             for(int i = 0; i < result.Length; i++) {
                 result[i] = -1;
             }
 
+            //формируем список раскодированных символов
             foreach(KeyValuePair<byte, int> elem in indexOfSymbols) {
                 result[elem.Value] = elem.Key;
             }
@@ -130,9 +163,5 @@ namespace ConsoleApp1 {
 
             return result.Select(elem => (byte)elem).ToArray();
         }
-
-
-        // TODO: добавить запись и чтение из файла, расчет энтропии, показать размер 
-        // TODO: потестить разные файлы на вход и посмотреть энтропию и как сжимает
     }
 }
