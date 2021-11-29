@@ -88,14 +88,6 @@ namespace ConsoleApp1 {
 
             Console.WriteLine($"Энтропия исходного файла = {GetEntropy(pathToSourceFile)}");
 
-
-            // выводим декодированную последовательность в новый файл
-            //using (FileStream stream = File.OpenWrite(pathToDestinationFile)) {
-            //    foreach (byte elem in buffer_decode) {
-            //        stream.WriteByte(elem);
-            //    }
-            //}
-
             // формируем сжатый файл
             using (StreamWriter sw = new(pathToDestinationFile)) {
                 foreach(KeyValuePair<byte, int> elem in indexOfNewSymbols) {
