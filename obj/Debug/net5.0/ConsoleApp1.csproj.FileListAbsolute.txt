@@ -30,3 +30,19 @@ C:\Users\shiri\OneDrive\Desktop\учеба\ТеорИнф\BWT + Distance coding\
 C:\Users\shiri\OneDrive\Desktop\учеба\ТеорИнф\BWT + Distance coding\obj\Debug\net5.0\ref\ConsoleApp1.dll
 C:\Users\shiri\OneDrive\Desktop\учеба\ТеорИнф\BWT + Distance coding\obj\Debug\net5.0\ConsoleApp1.pdb
 C:\Users\shiri\OneDrive\Desktop\учеба\ТеорИнф\BWT + Distance coding\obj\Debug\net5.0\ConsoleApp1.genruntimeconfig.cache
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\bin\Debug\net5.0\ConsoleApp1.exe
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\bin\Debug\net5.0\ConsoleApp1.deps.json
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\bin\Debug\net5.0\ConsoleApp1.runtimeconfig.json
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\bin\Debug\net5.0\ConsoleApp1.runtimeconfig.dev.json
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\bin\Debug\net5.0\ConsoleApp1.dll
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\bin\Debug\net5.0\ref\ConsoleApp1.dll
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\bin\Debug\net5.0\ConsoleApp1.pdb
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\obj\Debug\net5.0\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\obj\Debug\net5.0\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\obj\Debug\net5.0\ConsoleApp1.AssemblyInfoInputs.cache
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\obj\Debug\net5.0\ConsoleApp1.AssemblyInfo.cs
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\obj\Debug\net5.0\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\obj\Debug\net5.0\ConsoleApp1.dll
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\obj\Debug\net5.0\ref\ConsoleApp1.dll
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\obj\Debug\net5.0\ConsoleApp1.pdb
+C:\Users\shiri\OneDrive\Desktop\учеба\Теория информации\BWT + Distance coding\obj\Debug\net5.0\ConsoleApp1.genruntimeconfig.cache

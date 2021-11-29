@@ -57,12 +57,20 @@ namespace ConsoleApp1 {
 
 
         static void Main() {
-            string pathToSourceFile = @"D:/code.txt";
+
+            string pathToSourceFile = @"D:/code.jpg";
             string pathToDestinationFile = @"D:/code_encode.txt";
 
             byte[] buffer_in;
-            using (StreamReader sr = new(pathToSourceFile)) {
-                buffer_in = Encoding.UTF8.GetBytes(sr.ReadToEnd()); 
+            using (FileStream stream = File.OpenRead(pathToSourceFile)) {
+                buffer_in = new byte[stream.Length];
+
+                int b = 0;
+                int i = 0;
+                while ((b = stream.ReadByte()) > -1) {
+                    buffer_in[i] = (byte)b;
+                    i++;
+                }
             }
 
             BWTImplementation bwt = new();
@@ -79,6 +87,14 @@ namespace ConsoleApp1 {
             Console.WriteLine("Сжатие прошло успешно!");
 
             Console.WriteLine($"Энтропия исходного файла = {GetEntropy(pathToSourceFile)}");
+
+
+            // выводим декодированную последовательность в новый файл
+            //using (FileStream stream = File.OpenWrite(pathToDestinationFile)) {
+            //    foreach (byte elem in buffer_decode) {
+            //        stream.WriteByte(elem);
+            //    }
+            //}
 
             // формируем сжатый файл
             using (StreamWriter sw = new(pathToDestinationFile)) {
@@ -119,8 +135,11 @@ namespace ConsoleApp1 {
             Console.WriteLine("Файл успешно декодирован!");
 
             // выводим декодированную последовательность в новый файл
-            using StreamWriter sw_decode = new(@"D:/code_decode.txt");
-            sw_decode.Write(Encoding.UTF8.GetString(buffer_decode));
+            using (FileStream stream = File.OpenWrite(@"D:/code_decode.jpg")) {
+                foreach(byte elem in buffer_decode) {
+                    stream.WriteByte(elem);
+                }
+            }
         }
     }
 }

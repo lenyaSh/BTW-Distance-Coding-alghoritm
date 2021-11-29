@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\shiri\\OneDrive\\Desktop\\учеба\\ТеорИнф\\BWT + Distance coding\\ConsoleApp1.csproj": {}
+    "C:\\Users\\shiri\\OneDrive\\Desktop\\учеба\\Теория информации\\BWT + Distance coding\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\shiri\\OneDrive\\Desktop\\учеба\\ТеорИнф\\BWT + Distance coding\\ConsoleApp1.csproj": {
+    "C:\\Users\\shiri\\OneDrive\\Desktop\\учеба\\Теория информации\\BWT + Distance coding\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\shiri\\OneDrive\\Desktop\\учеба\\ТеорИнф\\BWT + Distance coding\\ConsoleApp1.csproj",
+        "projectUniqueName": "C:\\Users\\shiri\\OneDrive\\Desktop\\учеба\\Теория информации\\BWT + Distance coding\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "C:\\Users\\shiri\\OneDrive\\Desktop\\учеба\\ТеорИнф\\BWT + Distance coding\\ConsoleApp1.csproj",
+        "projectPath": "C:\\Users\\shiri\\OneDrive\\Desktop\\учеба\\Теория информации\\BWT + Distance coding\\ConsoleApp1.csproj",
         "packagesPath": "C:\\Users\\shiri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\shiri\\OneDrive\\Desktop\\учеба\\ТеорИнф\\BWT + Distance coding\\obj\\",
+        "outputPath": "C:\\Users\\shiri\\OneDrive\\Desktop\\учеба\\Теория информации\\BWT + Distance coding\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ic5n+Siypepcy2byNLb/r7RLP3ZATlSp9fMsJcSCv/G+DchUCCqeCy3lvvhTcbDd/o1YK+CYMg0rl0pdhjjS6w==",
+  "dgSpecHash": "wT9SUIw8Adz6unnjwKkGvfqNAndMq/+GhzwQzn5DgnEn5ZJl5FaPNMubZ7xMa7IEI3xiHa8iFLZLBB1xYiGubA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\shiri\\OneDrive\\Desktop\\учеба\\ТеорИнф\\BWT + Distance coding\\ConsoleApp1.csproj",
+  "projectFilePath": "C:\\Users\\shiri\\OneDrive\\Desktop\\учеба\\Теория информации\\BWT + Distance coding\\ConsoleApp1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\shiri\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\shiri\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
